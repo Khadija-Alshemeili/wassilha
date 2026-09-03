@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وصّلها — استورد من السعودية إلى الإمارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1E29;
+    --ink-soft:rgba(26,30,41,.68);
+    --sand:#F2F5F6;
+    --sand-deep:#E3E9EC;
+    --paper:#FFFFFF;
+    --copper:#F4A93E;
+    --copper-deep:#D98F22;
+    --amber-light:#FBC65E;
+    --amber-soft:#FBE9C9;
+    --teal:#3C5A6B;
+    --teal-soft:#DEE6EA;
+    --steel:#7C97A6;
+    --steel-soft:#E6EBEE;
+    --slate:#5C6B76;
+    --line:#D6DEE3;
+    --danger:#C1543C;
+    --font-display:'Cairo',sans-serif;
+    --font-body:'IBM Plex Sans Arabic',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display);color:var(--ink);margin:0;}
+  a{color:inherit;}
+  button{font-family:var(--font-body);cursor:pointer;}
+  input,select,textarea{font-family:var(--font-body);}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:3px solid var(--copper);outline-offset:2px;}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:40;background:rgba(242,245,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:34px;height:34px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .brand-mark svg{width:18px;height:18px;}
+  .brand-name{font-family:var(--font-display);font-weight:800;font-size:19px;letter-spacing:.2px;}
+  nav.tabs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;overflow-x:auto;}
+  nav.tabs button{background:transparent;border:none;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;color:var(--slate);white-space:nowrap;transition:.15s;}
+  nav.tabs button.active{background:var(--ink);color:#fff;}
+  nav.tabs button:hover:not(.active){background:var(--sand-deep);color:var(--ink);}
+  .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex-shrink:0;}
+  .lang-toggle button{background:var(--paper);border:none;padding:8px 14px;font-size:13px;font-weight:700;color:var(--slate);}
+  .lang-toggle button.active{background:var(--copper);color:#fff;}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:11px;font-weight:700;font-size:15px;border:none;transition:.15s;text-decoration:none;}
+  .btn-primary{background:var(--copper);color:#fff;}
+  .btn-primary:hover{background:var(--copper-deep);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .btn-block{width:100%;}
+  .btn:disabled{opacity:.5;cursor:not-allowed;}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;padding:0;margin-bottom:8px;}
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg svg{width:100%;height:100%;display:block;}
+  .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(26,30,41,.10) 0%, rgba(26,30,41,.40) 60%, rgba(26,30,41,.72) 100%);}
+  .hero-inner{position:relative;z-index:2;padding:88px 0 44px;}
+  .hero-inner .eyebrow{color:var(--amber-light);}
+  .hero-inner h1{color:#fff;max-width:20ch;}
+  .hero-inner p.lead{color:rgba(255,255,255,.86);}
+  .hero-inner .btn-ghost{border-color:#fff;color:#fff;}
+  .hero-inner .btn-ghost:hover{background:#fff;color:var(--ink);}
+  .route-strip{margin-top:46px;background:rgba(26,30,41,.45);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 22px 12px;max-width:640px;}
+  .route-strip svg{width:100%;height:auto;display:block;}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--steel);text-transform:uppercase;margin-bottom:14px;display:block;}
+  .hero h1{font-size:42px;line-height:1.22;font-weight:800;margin-bottom:18px;}
+  .hero p.lead{font-size:17px;color:var(--ink-soft);max-width:46ch;margin-bottom:28px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .route-cap{display:flex;justify-content:space-between;margin-top:4px;padding:0 6px;font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.7);}
+
+  /* Steps */
+  .section{padding:44px 0;}
+  .section-title{font-size:26px;font-weight:800;margin-bottom:8px;}
+  .section-sub{color:var(--ink-soft);margin-bottom:30px;font-size:15px;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .step-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+  .step-num{font-family:var(--font-mono);font-weight:700;font-size:13px;margin-bottom:10px;}
+  .step-card:nth-child(1) .step-num{color:var(--copper);}
+  .step-card:nth-child(2) .step-num{color:var(--steel);}
+  .step-card:nth-child(3) .step-num{color:var(--teal);}
+  .step-card:nth-child(4) .step-num{color:var(--copper-deep);}
+  .step-card h3{font-size:16px;margin-bottom:6px;}
+  .step-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  .usp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+  .usp{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;}
+  .usp-icon{width:36px;height:36px;border-radius:9px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .usp:nth-child(1) .usp-icon{background:var(--amber-soft);color:var(--copper-deep);}
+  .usp:nth-child(2) .usp-icon{background:var(--steel-soft);color:var(--steel);}
+  .usp:nth-child(3) .usp-icon{background:var(--teal-soft);color:var(--teal);}
+  .usp h3{font-size:15px;margin-bottom:4px;}
+  .usp p{font-size:13px;color:var(--ink-soft);margin:0;}
+
+  /* Cards / forms */
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;}
+  .panel-two{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  label{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px;color:var(--ink);}
+  .field{margin-bottom:16px;}
+  input[type=text],input[type=tel],input[type=number],input[type=url],select,textarea{
+    width:100%;padding:11px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--sand);font-size:14.5px;color:var(--ink);
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--copper);background:#fff;}
+  textarea{resize:vertical;min-height:80px;}
+  .hint{font-size:12px;color:var(--slate);margin-top:5px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .result-box{background:var(--sand);border:1.5px dashed var(--line);border-radius:14px;padding:20px;margin-top:6px;}
+  .result-line{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px solid var(--line);}
+  .result-line:last-of-type{border-bottom:none;}
+  .result-line .val{font-family:var(--font-mono);font-weight:600;}
+  .result-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding-top:14px;border-top:2px solid var(--ink);}
+  .result-total .val{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--copper-deep);background:var(--amber-soft);padding:2px 10px;border-radius:8px;}
+  .placeholder-note{color:var(--slate);font-size:13.5px;}
+
+  .code-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-weight:700;font-size:20px;background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;letter-spacing:.5px;}
+  .confirm-box{text-align:center;padding:36px 20px;}
+  .confirm-box .icon-ok{width:56px;height:56px;border-radius:50%;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .alert{padding:12px 16px;border-radius:10px;font-size:14px;margin-bottom:16px;}
+  .alert-error{background:#FBEAE5;color:var(--danger);border:1px solid #EFC7BA;}
+  .alert-ok{background:var(--teal-soft);color:var(--teal);border:1px solid #BFDBD4;}
+
+  /* Timeline */
+  .timeline{display:flex;flex-direction:column;gap:0;margin-top:22px;}
+  .tl-item{display:flex;gap:14px;position:relative;padding-bottom:26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot-col{display:flex;flex-direction:column;align-items:center;}
+  .tl-dot{width:22px;height:22px;border-radius:50%;background:var(--sand-deep);border:2px solid var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .tl-dot.done{background:var(--teal);border-color:var(--teal);}
+  .tl-dot.current{background:var(--copper);border-color:var(--copper);box-shadow:0 0 0 4px rgba(198,121,59,.18);}
+  .tl-line{width:2px;flex:1;background:var(--line);margin-top:2px;}
+  .tl-line.done{background:var(--steel);}
+  .tl-content h3{font-size:15px;margin-bottom:3px;}
+  .tl-content p{font-size:12.5px;color:var(--slate);margin:0;}
+
+  /* Orders list */
+  .order-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;cursor:pointer;transition:.15s;}
+  .order-card:hover{border-color:var(--copper);}
+  .order-code{font-family:var(--font-mono);font-weight:700;font-size:14px;}
+  .order-meta{font-size:12.5px;color:var(--slate);margin-top:3px;}
+  .status-pill{font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--teal-soft);color:var(--teal);white-space:nowrap;}
+  .status-pill.inprogress{background:var(--amber-soft);color:var(--copper-deep);}
+  .empty-state{text-align:center;padding:50px 20px;color:var(--slate);}
+
+  .track-search{display:flex;gap:10px;margin-bottom:8px;}
+  .track-search input{flex:1;font-family:var(--font-mono);font-size:15px;letter-spacing:.3px;}
+
+  footer.site{border-top:1px solid var(--line);margin-top:40px;padding:32px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer-note{font-size:12.5px;color:var(--slate);}
+
+  @media (max-width:820px){
+    .steps{grid-template-columns:1fr 1fr;}
+    .usp-row{grid-template-columns:1fr;}
+    .panel-two{grid-template-columns:1fr;}
+    .row2{grid-template-columns:1fr;}
+    .hero-inner h1{font-size:32px;}
+    .hero-inner{padding:64px 0 32px;}
+  }
+
+  /* Multi-item request rows */
+  .item-row{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;background:var(--sand);}
+  .item-row-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .item-row-title{font-weight:700;font-size:13.5px;color:var(--steel);}
+  .item-remove{background:none;border:none;color:var(--danger);font-size:12.5px;font-weight:700;padding:0;}
+
+  /* Shipping speed cards */
+  .ship-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ship-card{position:relative;display:block;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;background:var(--sand);}
+  .ship-card input{position:absolute;top:14px;inset-inline-end:14px;}
+  .ship-card.active{border-color:var(--copper);background:var(--amber-soft);}
+  .ship-title{display:block;font-weight:700;font-size:14.5px;margin-bottom:3px;}
+  .ship-note{display:block;font-size:12px;color:var(--slate);}
+
+  /* Insurance checkbox */
+  .check-row{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;cursor:pointer;margin-bottom:0;}
+  .check-row input{width:17px;height:17px;accent-color:var(--copper);}
+
+  /* Admin */
+  .admin-stage-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .stage-btn{border:1.5px solid var(--line);background:var(--paper);color:var(--slate);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:999px;}
+  .stage-btn.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .stage-btn.ghost{border-style:dashed;color:var(--steel);}
+  .admin-link{background:none;border:none;color:var(--slate);font-size:12px;text-decoration:underline;padding:0;}
+
+  /* Invoice */
+  .invoice-sheet{max-width:100%;}
+  .invoice-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;}
+  .invoice-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .invoice-table th{text-align:start;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--slate);border-bottom:2px solid var(--line);padding:8px 6px;}
+  .invoice-table td{padding:10px 6px;border-bottom:1px solid var(--line);}
+  .invoice-table td.inv-link{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--font-mono);font-size:12px;}
+
+  @media print{
+    body{background:#fff;}
+    .no-print{display:none !important;}
+    .panel{border:none;box-shadow:none;padding:0;}
+    .section{padding:0;}
+  }
+
+  /* Image upload */
+  .img-upload-row{display:flex;align-items:center;gap:12px;margin-top:4px;}
+  .img-upload-btn{border:1.5px dashed var(--line);background:var(--paper);border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;color:var(--slate);cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+  .img-upload-btn input{display:none;}
+  .img-preview{display:flex;align-items:center;gap:8px;}
+  .img-preview img{width:44px;height:44px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
+  .img-preview button{background:none;border:none;color:var(--danger);font-size:12px;font-weight:700;padding:0;}
+
+  /* Floating WhatsApp */
+  .wa-float{position:fixed;bottom:22px;inset-inline-end:22px;z-index:50;display:flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 20px rgba(0,0,0,.18);}
+  .wa-float svg{width:20px;height:20px;flex-shrink:0;}
+
+  /* Cancelled banner */
+  .cancelled-banner{text-align:center;padding:30px 20px;background:#FBEAE5;border:1px solid #EFC7BA;border-radius:14px;}
+  .cancelled-banner h3{color:var(--danger);margin-bottom:6px;}
+  .cancelled-banner p{color:var(--ink-soft);margin:0;font-size:13.5px;}
+
+  /* Admin stats + chart */
+  .admin-stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+  .admin-stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .admin-stat .num{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--copper-deep);}
+  .admin-stat .lbl{font-size:12.5px;color:var(--slate);margin-top:4px;}
+  .admin-chart{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:20px;}
+  .admin-chart svg{width:100%;height:auto;display:block;}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+const STAGE_KEYS = ['received','purchasing','hubRiyadh','customs','transit','delivered'];
+const STAGE_THRESHOLDS = [0, 0.12, 0.32, 0.52, 0.74, 0.95];
+const TRANSIT_MS = { standard: 5*24*60*60*1000, express: 2.5*24*60*60*1000 };
+const ADMIN_PIN = '2468'; // soft deterrent only — replace with real auth before launch
+
+const T = {
+  ar:{
+    brand:'وصّلها',
+    nav_home:'الرئيسية', nav_calc:'احسب التكلفة', nav_request:'اطلب الآن', nav_track:'تتبع الشحنة', nav_orders:'طلباتي',
+    hero_eyebrow:'الرياض ← دبي وكل الإمارات',
+    hero_title:'أي متجر سعودي، توصله لباب بيتك في الإمارات',
+    hero_lead:'ترسل لنا رابط المنتج، نشتريه ونشحنه ونخلّصه جمركياً، وتستلمه في أي إمارة. بدون بطاقة سعودية، بدون تعقيد.',
+    hero_cta1:'اطلب الآن', hero_cta2:'احسب التكلفة',
+    route_ksa:'مركز التجميع — الرياض', route_uae:'التسليم — الإمارات',
+    steps_title:'كيف تتم العملية', steps_sub:'أربع خطوات من الطلب للاستلام',
+    step1_t:'ترسل رابط المنتج', step1_d:'من أي متجر سعودي إلكتروني أو محلي، مع السعر والوزن التقريبي.',
+    step2_t:'نشتري ونجمّع', step2_d:'نشتري القطعة وتوصل لمركزنا في الرياض خلال أيام قليلة.',
+    step3_t:'تخليص جمركي', step3_d:'نتولى إجراءات التخليص والشحن إلى داخل الإمارات.',
+    step4_t:'توصيل لباب بيتك', step4_d:'تستلم الطلب في أي إمارة، مع رقم تتبع مباشر طوال الرحلة.',
+    usp1_t:'أسعار واضحة من البداية', usp1_d:'تعرف التكلفة الكاملة قبل ما تطلب، بدون رسوم مفاجئة عند التسليم.',
+    usp2_t:'من أي متجر تقريباً', usp2_d:'حتى المتاجر اللي ما توصل للإمارات، نستلمها لك من السعودية ونكمّل الرحلة.',
+    usp3_t:'تتبع مباشر', usp3_d:'رقم تتبع واحد يوريك وين وصل طلبك أول بأول.',
+    calc_title:'حاسبة التكلفة', calc_sub:'رقم تقريبي للشحن والرسوم قبل ما تقرر تطلب',
+    lbl_price:'سعر القطعة (ريال سعودي)', lbl_weight:'الوزن التقريبي (كجم)',
+    ph_price:'مثال: 250', ph_weight:'مثال: 1.5',
+    res_item:'قيمة القطعة', res_shipping:'رسوم الشحن', res_service:'رسوم الخدمة', res_customs:'جمارك تقديرية (٥٪ فوق ٣٠٠ درهم)', res_total:'الإجمالي التقديري',
+    res_empty:'عبّي السعر والوزن عشان تشوف التكلفة التقديرية.',
+    calc_note:'الأرقام تقديرية وقد تختلف الرسوم الجمركية الفعلية حسب نوع المنتج والجهة المختصة.',
+    calc_to_request:'أكمل الطلب بهذا التقدير',
+    req_title:'اطلب الآن', req_sub:'عبّي التفاصيل ونتواصل معك لتأكيد الطلب',
+    lbl_name:'الاسم', lbl_phone:'رقم الجوال', lbl_link:'رابط المنتج', lbl_price2:'سعر القطعة (ريال)', lbl_weight2:'الوزن (كجم)',
+    lbl_category:'نوع المنتج', lbl_city:'الإمارة', lbl_notes:'ملاحظات (اختياري)',
+    ph_name:'مثال: سارة العتيبي', ph_phone:'05xxxxxxxx', ph_link:'https://...', ph_notes:'مقاس، لون، أي تفاصيل تهمنا...',
+    cat_clothing:'ملابس وإكسسوارات', cat_electronics:'إلكترونيات', cat_beauty:'تجميل وعناية', cat_home:'مستلزمات منزلية', cat_other:'أخرى',
+    city_dubai:'دبي', city_auh:'أبوظبي', city_shj:'الشارقة', city_ajm:'عجمان', city_rak:'رأس الخيمة', city_fuj:'الفجيرة', city_uaq:'أم القيوين',
+    item_title:'المنتج', add_item:'+ أضف منتج آخر لنفس الشحنة', remove_item:'حذف هذا المنتج',
+    lbl_shipping:'سرعة الشحن', ship_standard:'عادي', ship_standard_note:'يوصل خلال ٥ أيام تقريباً', ship_express:'سريع', ship_express_note:'يوصل خلال ٢-٣ أيام، برسوم أعلى',
+    lbl_insurance:'تأمين اختياري على الشحنة', insurance_note:'تعويض لو انكسرت القطعة أو فُقدت أثناء الشحن — ٣٪ من قيمة القطعة، بحد أدنى ١٠ درهم.',
+    res_insurance:'رسوم التأمين',
+    field_items:'عدد المنتجات', field_shipping:'سرعة الشحن', field_insurance:'التأمين', insurance_yes:'مفعّل', insurance_no:'بدون',
+    invoice_btn:'فاتورة PDF',
+    lbl_image:'أو ارفع صورة المنتج', img_or_link_hint:'لازم رابط أو صورة على الأقل لكل منتج',
+    remove_image:'إزالة الصورة', image_selected:'تم رفع الصورة',
+    edit_order_btn:'عدّل الطلب', cancel_order_btn:'ألغِ الطلب', cancel_confirm:'متأكد تبي تلغي هالطلب؟',
+    edit_window_note:'تقدر تعدّل أو تلغي الطلب خلال ساعة من إرساله فقط.',
+    cancelled_title:'تم إلغاء هذا الطلب', cancelled_note:'إذا تغيّر رأيك، تواصل معنا لإعادة تفعيله.',
+    edit_title:'تعديل الطلب', save_edit_btn:'حفظ التعديلات',
+    wa_button:'تواصل واتساب',
+    admin_stats_orders:'إجمالي الطلبات', admin_stats_revenue:'الإيرادات التقديرية', admin_chart_title:'الطلبات آخر ٧ أيام',
+    submit_order:'إرسال الطلب',
+    err_required:'عبّي الاسم، الجوال، رابط المنتج، وسعر القطعة عشان نكمل الطلب.',
+    err_storage:'صار خلل بسيط وما قدرنا نحفظ الطلب، جرب مرة ثانية.',
+    confirm_title:'استلمنا طلبك',
+    confirm_sub:'خلي رقم التتبع عندك، تقدر تتابع به حالة الطلب أول بأول.',
+    confirm_total:'التكلفة التقديرية',
+    confirm_track_btn:'تتبع هذا الطلب', confirm_orders_btn:'كل طلباتي',
+    track_title:'تتبع الشحنة', track_sub:'عبّي رقم التتبع اللي وصلك عند الطلب',
+    track_ph:'مثال: WSL-482913', track_btn:'تتبع',
+    track_notfound:'ما لقينا طلب بهذا الرقم، تأكد منه وحاول مرة ثانية.',
+    stage_received_t:'تم استلام الطلب', stage_received_d:'استلمنا تفاصيل طلبك وجاري تأكيده.',
+    stage_purchasing_t:'جاري الشراء', stage_purchasing_d:'جاري شراء القطعة من المتجر.',
+    stage_hubRiyadh_t:'وصل لمركز التجميع — الرياض', stage_hubRiyadh_d:'القطعة وصلت مركزنا وجاري تجهيزها للشحن.',
+    stage_customs_t:'التخليص الجمركي', stage_customs_d:'جاري إنهاء إجراءات الجمارك.',
+    stage_transit_t:'في الطريق إلى الإمارات', stage_transit_d:'الشحنة في طريقها للتسليم داخل الإمارات.',
+    stage_delivered_t:'تم التسليم', stage_delivered_d:'وصل الطلب لباب بيتك.',
+    order_summary:'ملخص الطلب', field_product:'المنتج', field_city:'التسليم إلى', field_est:'التكلفة التقديرية',
+    orders_title:'طلباتي', orders_sub:'كل الطلبات اللي أرسلتها من هذا الجهاز',
+    orders_empty_t:'ما عندك طلبات بعد', orders_empty_d:'أرسل أول طلب وبيظهر لك هنا مع رقم التتبع.',
+    orders_empty_cta:'أرسل طلب جديد',
+    footer_note:'موقع تجريبي — عبّي بيانات التواصل الحقيقية قبل الإطلاق.',
+    status_inprogress:'قيد التنفيذ', status_delivered:'تم التسليم',
+    invoice_title:'فاتورة الطلب', invoice_print:'طباعة / حفظ PDF', invoice_customer:'بيانات العميل',
+    invoice_items:'المنتجات', invoice_col_product:'رابط المنتج', invoice_col_cat:'الفئة', invoice_col_price:'السعر (ريال)', invoice_col_weight:'الوزن (كجم)',
+    invoice_thanks:'شكراً لطلبك مع وصّلها', invoice_date:'تاريخ الطلب', invoice_back:'رجوع للتتبع',
+    admin_link:'لوحة التحكم', admin_title:'لوحة التحكم', admin_sub:'إدارة داخلية — مو مخصصة للعملاء',
+    admin_pin_label:'أدخل رمز الدخول', admin_pin_btn:'دخول', admin_pin_wrong:'رمز غير صحيح، حاول مرة ثانية.',
+    admin_empty:'ما فيه طلبات بعد', admin_set_status:'حدّث الحالة يدوياً', admin_auto:'(تلقائي حسب الوقت)',
+  },
+  en:{
+    brand:'Wassilha',
+    nav_home:'Home', nav_calc:'Cost calculator', nav_request:'Request order', nav_track:'Track shipment', nav_orders:'My orders',
+    hero_eyebrow:'Riyadh → Dubai & every emirate',
+    hero_title:'Any Saudi store, delivered to your door in the UAE',
+    hero_lead:'Send us the product link. We buy it, ship it, clear it through customs, and deliver to any emirate. No Saudi card, no hassle.',
+    hero_cta1:'Request now', hero_cta2:'Calculate cost',
+    route_ksa:'Collection hub — Riyadh', route_uae:'Delivery — UAE',
+    steps_title:'How it works', steps_sub:'Four steps from order to doorstep',
+    step1_t:'Send the product link', step1_d:'From any Saudi online or local store, with price and rough weight.',
+    step2_t:'We buy and consolidate', step2_d:'We purchase the item and it arrives at our Riyadh hub within days.',
+    step3_t:'Customs clearance', step3_d:'We handle clearance and onward shipping into the UAE.',
+    step4_t:'Delivered to your door', step4_d:'You receive it in any emirate, with live tracking the whole way.',
+    usp1_t:'Clear pricing upfront', usp1_d:'Know the full cost before you order — no surprise fees on delivery.',
+    usp2_t:'From almost any store', usp2_d:'Even stores that don\'t ship to the UAE — we collect from Saudi and finish the journey.',
+    usp3_t:'Live tracking', usp3_d:'One tracking code shows exactly where your order is.',
+    calc_title:'Cost calculator', calc_sub:'An estimate of shipping and fees before you commit',
+    lbl_price:'Item price (SAR)', lbl_weight:'Approx. weight (kg)',
+    ph_price:'e.g. 250', ph_weight:'e.g. 1.5',
+    res_item:'Item value', res_shipping:'Shipping fee', res_service:'Service fee', res_customs:'Est. customs (5% over AED 300)', res_total:'Estimated total',
+    res_empty:'Enter the price and weight to see the estimated cost.',
+    calc_note:'Figures are estimates — actual customs duty depends on product type and the relevant authority.',
+    calc_to_request:'Continue to order with this estimate',
+    req_title:'Request an order', req_sub:'Fill in the details and we\'ll confirm your order',
+    lbl_name:'Name', lbl_phone:'Phone number', lbl_link:'Product link', lbl_price2:'Item price (SAR)', lbl_weight2:'Weight (kg)',
+    lbl_category:'Product type', lbl_city:'Emirate', lbl_notes:'Notes (optional)',
+    ph_name:'e.g. Sara Al Otaibi', ph_phone:'05xxxxxxxx', ph_link:'https://...', ph_notes:'Size, color, anything we should know...',
+    cat_clothing:'Clothing & accessories', cat_electronics:'Electronics', cat_beauty:'Beauty & care', cat_home:'Home goods', cat_other:'Other',
+    city_dubai:'Dubai', city_auh:'Abu Dhabi', city_shj:'Sharjah', city_ajm:'Ajman', city_rak:'Ras Al Khaimah', city_fuj:'Fujairah', city_uaq:'Umm Al Quwain',
+    item_title:'Item', add_item:'+ Add another item to this shipment', remove_item:'Remove this item',
+    lbl_shipping:'Shipping speed', ship_standard:'Standard', ship_standard_note:'Arrives in about 5 days', ship_express:'Express', ship_express_note:'Arrives in 2-3 days, higher fee',
+    lbl_insurance:'Optional shipment insurance', insurance_note:'Compensation if the item is damaged or lost in transit — 3% of item value, minimum AED 10.',
+    res_insurance:'Insurance fee',
+    field_items:'Items', field_shipping:'Shipping speed', field_insurance:'Insurance', insurance_yes:'Covered', insurance_no:'None',
+    invoice_btn:'PDF invoice',
+    lbl_image:'Or upload a product photo', img_or_link_hint:'Each item needs at least a link or a photo',
+    remove_image:'Remove photo', image_selected:'Photo uploaded',
+    edit_order_btn:'Edit order', cancel_order_btn:'Cancel order', cancel_confirm:'Are you sure you want to cancel this order?',
+    edit_window_note:'You can edit or cancel an order within one hour of sending it.',
+    cancelled_title:'This order was cancelled', cancelled_note:'Changed your mind? Contact us to reactivate it.',
+    edit_title:'Edit order', save_edit_btn:'Save changes',
+    wa_button:'Chat on WhatsApp',
+    admin_stats_orders:'Total orders', admin_stats_revenue:'Estimated revenue', admin_chart_title:'Orders, last 7 days',
+    submit_order:'Submit order',
+    err_required:'Fill in name, phone, product link, and item price to submit.',
+    err_storage:'Something went wrong saving your order — please try again.',
+    confirm_title:'Order received',
+    confirm_sub:'Keep your tracking code — you can follow the order\'s status any time.',
+    confirm_total:'Estimated cost',
+    confirm_track_btn:'Track this order', confirm_orders_btn:'All my orders',
+    track_title:'Track shipment', track_sub:'Enter the tracking code from your order',
+    track_ph:'e.g. WSL-482913', track_btn:'Track',
+    track_notfound:'No order found with that code — double check and try again.',
+    stage_received_t:'Order received', stage_received_d:'We have your order details and are confirming it.',
+    stage_purchasing_t:'Purchasing', stage_purchasing_d:'Buying the item from the store.',
+    stage_hubRiyadh_t:'Arrived at hub — Riyadh', stage_hubRiyadh_d:'Item reached our hub and is being prepped for shipping.',
+    stage_customs_t:'Customs clearance', stage_customs_d:'Finishing customs procedures.',
+    stage_transit_t:'In transit to the UAE', stage_transit_d:'On its way for delivery within the UAE.',
+    stage_delivered_t:'Delivered', stage_delivered_d:'Arrived at your door.',
+    order_summary:'Order summary', field_product:'Product', field_city:'Delivering to', field_est:'Estimated cost',
+    orders_title:'My orders', orders_sub:'All orders sent from this device',
+    orders_empty_t:'No orders yet', orders_empty_d:'Submit your first order and it\'ll show up here with its tracking code.',
+    orders_empty_cta:'Send a new order',
+    footer_note:'Demo site — add real contact details before launch.',
+    status_inprogress:'In progress', status_delivered:'Delivered',
+    invoice_title:'Order invoice', invoice_print:'Print / Save as PDF', invoice_customer:'Customer details',
+    invoice_items:'Items', invoice_col_product:'Product link', invoice_col_cat:'Category', invoice_col_price:'Price (SAR)', invoice_col_weight:'Weight (kg)',
+    invoice_thanks:'Thank you for ordering with Wassilha', invoice_date:'Order date', invoice_back:'Back to tracking',
+    admin_link:'Admin', admin_title:'Admin dashboard', admin_sub:'Internal management — not for customers',
+    admin_pin_label:'Enter access code', admin_pin_btn:'Enter', admin_pin_wrong:'Wrong code, try again.',
+    admin_empty:'No orders yet', admin_set_status:'Update status manually', admin_auto:'(auto, by time)',
+  }
+};
+
+let state = { lang:'ar', view:'home', lastError:null, confirmedOrder:null, trackResult:null, trackError:null, reqDraft:null, invoiceCode:null, adminAuthed:false, editingCode:null, editingCreatedAt:null, editingStatusOverride:null };
+
+function t(k){ return T[state.lang][k]; }
+function setView(v){ state.view=v; state.trackResult=null; state.trackError=null; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+function setLang(l){
+  if(state.lang===l) return;
+  state.lang=l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l==='ar' ? 'rtl' : 'ltr';
+  render();
+}
+function fmt(n){ return n.toLocaleString(state.lang==='ar'?'ar-AE':'en-AE',{maximumFractionDigits:2,minimumFractionDigits:2}); }
+
+function computeCost(items, shipping, insured){
+  const itemsTotalAED = items.reduce((s,it)=> s + (it.price||0)*0.98, 0);
+  const totalWeight = items.reduce((s,it)=> s + (it.weight||1), 0);
+  const shippingBase = Math.max(25, totalWeight * 18);
+  const shippingFee = shipping === 'express' ? shippingBase * 1.6 : shippingBase;
+  const service = Math.max(15, itemsTotalAED * 0.08);
+  const insurance = insured ? Math.max(10, itemsTotalAED * 0.03) : 0;
+  const customs = itemsTotalAED > 300 ? itemsTotalAED * 0.05 : 0;
+  const total = itemsTotalAED + shippingFee + service + insurance + customs;
+  return {itemsTotalAED, shippingFee, service, insurance, customs, total};
+}
+
+function genCode(){
+  const n = Math.floor(100000 + Math.random()*900000);
+  return 'WSL-' + n;
+}
+
+function stageIndexForOrder(order){
+  if(order.statusOverride && STAGE_KEYS.includes(order.statusOverride)){
+    return STAGE_KEYS.indexOf(order.statusOverride);
+  }
+  const duration = TRANSIT_MS[order.shipping] || TRANSIT_MS.standard;
+  const elapsed = Date.now() - order.createdAt;
+  const frac = Math.min(1, Math.max(0, elapsed / duration));
+  let idx = 0;
+  for(let i=0;i<STAGE_THRESHOLDS.length;i++){
+    if(frac >= STAGE_THRESHOLDS[i]) idx = i;
+  }
+  if(frac >= 0.98) idx = STAGE_KEYS.length - 1;
+  return idx;
+}
+
+async function getAuthoritativeOrder(code){
+  try{
+    const r = await window.storage.get('admin_order:'+code, true);
+    return JSON.parse(r.value);
+  }catch(e){
+    const r2 = await window.storage.get('order:'+code, false);
+    return JSON.parse(r2.value);
+  }
+}
+
+/* ---------- Icons (inline, no external images) ---------- */
+const ICON_MARK = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h13M13 6l6 6-6 6" stroke="#F2F5F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_OK = `<svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_TAG = `<svg viewBox="0 0 24 24" fill="none"><path d="M12 2 2 12l10 10 10-10L12 2Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`;
+const ICON_BOX = `<svg viewBox="0 0 24 24" fill="none"><path d="M21 8l-9-5-9 5 9 5 9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8M12 13v8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+const ICON_PIN = `<svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>`;
+const ICON_CHAT = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.3-3.5A7.96 7.96 0 0 1 4 12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/></svg>`;
+
+function heroBGArt(){
+  return `
+  <svg viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1A1E29"/>
+        <stop offset="0.38" stop-color="#3C5A6B"/>
+        <stop offset="0.62" stop-color="#7C97A6"/>
+        <stop offset="0.82" stop-color="#F4A93E"/>
+        <stop offset="1" stop-color="#FBC65E"/>
+      </linearGradient>
+      <radialGradient id="sunGlow" cx="0.78" cy="0.66" r="0.35">
+        <stop offset="0" stop-color="#FBE9C9" stop-opacity="0.9"/>
+        <stop offset="1" stop-color="#FBE9C9" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="560" fill="url(#skyGrad)"/>
+    <rect width="1200" height="560" fill="url(#sunGlow)"/>
+    <path d="M0 420 C 180 360, 320 440, 470 400 C 610 362, 720 430, 860 392 C 980 360, 1080 410, 1200 380 L1200 560 L0 560 Z" fill="#1A1E29" opacity="0.55"/>
+    <path d="M0 470 C 220 410, 380 480, 540 440 C 700 400, 860 470, 1020 430 C 1090 414, 1150 424, 1200 418 L1200 560 L0 560 Z" fill="#1A1E29" opacity="0.85"/>
+  </svg>`;
+}
+
+function heroRouteStrip(){
+  return `
+  <svg viewBox="0 0 640 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#F4A93E"/>
+        <stop offset="0.55" stop-color="#7C97A6"/>
+        <stop offset="1" stop-color="#FBC65E"/>
+      </linearGradient>
+    </defs>
+    <path d="M 22 40 C 160 8, 460 58, 618 26" fill="none" stroke="url(#lg2)" stroke-width="2.5" stroke-dasharray="6 7" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="220" to="0" dur="1.8s" fill="freeze"/>
+    </path>
+    <circle cx="22" cy="40" r="6" fill="#F4A93E"/>
+    <circle cx="618" cy="26" r="6" fill="#FBC65E"/>
+    <circle r="4" fill="#FBC65E">
+      <animateMotion dur="5s" repeatCount="indefinite" path="M 22 40 C 160 8, 460 58, 618 26"/>
+    </circle>
+  </svg>`;
+}
+
+/* ---------- Views ---------- */
+function viewHome(){
+  return `
+  <section class="hero">
+    <div class="hero-bg">${heroBGArt()}</div>
+    <div class="hero-scrim"></div>
+    <div class="container hero-inner">
+      <span class="eyebrow">${t('hero_eyebrow')}</span>
+      <h1>${t('hero_title')}</h1>
+      <p class="lead">${t('hero_lead')}</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="setView('request')">${t('hero_cta1')}</button>
+        <button class="btn btn-ghost" onclick="setView('calc')">${t('hero_cta2')}</button>
+      </div>
+      <div class="route-strip">
+        ${heroRouteStrip()}
+        <div class="route-cap"><span>${t('route_ksa')}</span><span>${t('route_uae')}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">${t('steps_title')}</h2>
+      <p class="section-sub">${t('steps_sub')}</p>
+      <div class="steps">
+        <div class="step-card"><div class="step-num">01</div><h3>${t('step1_t')}</h3><p>${t('step1_d')}</p></div>
+        <div class="step-card"><div class="step-num">02</div><h3>${t('step2_t')}</h3><p>${t('step2_d')}</p></div>
+        <div class="step-card"><div class="step-num">03</div><h3>${t('step3_t')}</h3><p>${t('step3_d')}</p></div>
+        <div class="step-card"><div class="step-num">04</div><h3>${t('step4_t')}</h3><p>${t('step4_d')}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="usp-row">
+        <div class="usp"><div class="usp-icon">${ICON_TAG}</div><div><h3>${t('usp1_t')}</h3><p>${t('usp1_d')}</p></div></div>
+        <div class="usp"><div class="usp-icon">${ICON_BOX}</div><div><h3>${t('usp2_t')}</h3><p>${t('usp2_d')}</p></div></div>
+        <div class="usp"><div class="usp-icon">${ICON_PIN}</div><div><h3>${t('usp3_t')}</h3><p>${t('usp3_d')}</p></div></div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function viewCalc(){
+  return `
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <h2 class="section-title">${t('calc_title')}</h2>
+      <p class="section-sub">${t('calc_sub')}</p>
+      <div class="panel">
+        <div class="row2">
+          <div class="field">
+            <label for="calcPrice">${t('lbl_price')}</label>
+            <input type="number" id="calcPrice" min="0" step="0.01" placeholder="${t('ph_price')}" oninput="liveCalc()">
+          </div>
+          <div class="field">
+            <label for="calcWeight">${t('lbl_weight')}</label>
+            <input type="number" id="calcWeight" min="0" step="0.1" placeholder="${t('ph_weight')}" oninput="liveCalc()">
+          </div>
+        </div>
+        <div id="calcResults" class="result-box">
+          <p class="placeholder-note">${t('res_empty')}</p>
+        </div>
+        <p class="hint" style="margin-top:14px">${t('calc_note')}</p>
+        <button class="btn btn-primary btn-block" style="margin-top:10px" onclick="goRequestFromCalc()">${t('calc_to_request')}</button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderCalcResults(){
+  const box = document.getElementById('calcResults');
+  if(!box) return;
+  const price = parseFloat(document.getElementById('calcPrice').value);
+  const weight = parseFloat(document.getElementById('calcWeight').value);
+  if(!price || price<=0 || !weight || weight<=0){
+    box.innerHTML = `<p class="placeholder-note">${t('res_empty')}</p>`;
+    return;
+  }
+  const c = computeCost([{price, weight}], 'standard', false);
+  box.innerHTML = `
+    <div class="result-line"><span>${t('res_item')}</span><span class="val">AED ${fmt(c.itemsTotalAED)}</span></div>
+    <div class="result-line"><span>${t('res_shipping')}</span><span class="val">AED ${fmt(c.shippingFee)}</span></div>
+    <div class="result-line"><span>${t('res_service')}</span><span class="val">AED ${fmt(c.service)}</span></div>
+    <div class="result-line"><span>${t('res_customs')}</span><span class="val">AED ${fmt(c.customs)}</span></div>
+    <div class="result-total"><span>${t('res_total')}</span><span class="val">AED ${fmt(c.total)}</span></div>
+  `;
+}
+function liveCalc(){ renderCalcResults(); }
+function goRequestFromCalc(){
+  const price = document.getElementById('calcPrice') ? document.getElementById('calcPrice').value : '';
+  const weight = document.getElementById('calcWeight') ? document.getElementById('calcWeight').value : '';
+  state.reqDraft = {
+    name:'', phone:'', city:'dubai', notes:'', shipping:'standard', insured:false,
+    items:[{link:'', price, weight, category:'clothing', image:null}]
+  };
+  setView('request');
+}
+
+function defaultReqDraft(){
+  return { name:'', phone:'', city:'dubai', notes:'', shipping:'standard', insured:false,
+    items:[{link:'', price:'', weight:'', category:'clothing', image:null}] };
+}
+
+function captureReqDraft(){
+  const d = state.reqDraft || defaultReqDraft();
+  const nameEl = document.getElementById('fName');
+  if(nameEl){
+    d.name = nameEl.value;
+    d.phone = document.getElementById('fPhone').value;
+    d.city = document.getElementById('fCity').value;
+    d.notes = document.getElementById('fNotes').value;
+    d.shipping = document.querySelector('input[name=shipMode]:checked').value;
+    d.insured = document.getElementById('fInsured').checked;
+    d.items = d.items.map((it, i)=>({
+      ...it,
+      link: document.getElementById('itemLink'+i).value,
+      price: document.getElementById('itemPrice'+i).value,
+      weight: document.getElementById('itemWeight'+i).value,
+      category: document.getElementById('itemCategory'+i).value,
+    }));
+  }
+  state.reqDraft = d;
+  return d;
+}
+
+function addReqItem(){
+  const d = captureReqDraft();
+  d.items.push({link:'', price:'', weight:'', category:'clothing', image:null});
+  render();
+}
+function removeReqItem(i){
+  const d = captureReqDraft();
+  if(d.items.length <= 1) return;
+  d.items.splice(i,1);
+  render();
+}
+
+function itemsFromDraftForCalc(d){
+  return d.items.map(it=>({price: parseFloat(it.price)||0, weight: parseFloat(it.weight)||1}));
+}
+
+function updateReqPreview(){
+  const d = captureReqDraft();
+  const box = document.getElementById('reqPreview');
+  if(!box) return;
+  const items = itemsFromDraftForCalc(d);
+  const hasValid = items.some(it=>it.price>0);
+  if(!hasValid){ box.innerHTML = `<p class="placeholder-note">${t('res_empty')}</p>`; return; }
+  const c = computeCost(items, d.shipping, d.insured);
+  box.innerHTML = `
+    <div class="result-line"><span>${t('res_item')}</span><span class="val">AED ${fmt(c.itemsTotalAED)}</span></div>
+    <div class="result-line"><span>${t('res_shipping')}</span><span class="val">AED ${fmt(c.shippingFee)}</span></div>
+    <div class="result-line"><span>${t('res_service')}</span><span class="val">AED ${fmt(c.service)}</span></div>
+    ${d.insured ? `<div class="result-line"><span>${t('res_insurance')}</span><span class="val">AED ${fmt(c.insurance)}</span></div>` : ''}
+    <div class="result-line"><span>${t('res_customs')}</span><span class="val">AED ${fmt(c.customs)}</span></div>
+    <div class="result-total"><span>${t('res_total')}</span><span class="val">AED ${fmt(c.total)}</span></div>
+  `;
+}
+
+function itemRowHTML(it, i, isLast){
+  return `
+  <div class="item-row" data-i="${i}">
+    <div class="item-row-head">
+      <span class="item-row-title">${t('item_title')} ${i+1}</span>
+      ${i>0 ? `<button type="button" class="item-remove" onclick="removeReqItem(${i})">${t('remove_item')}</button>` : ''}
+    </div>
+    <div class="field"><label>${t('lbl_link')}</label><input type="url" id="itemLink${i}" value="${it.link||''}" placeholder="${t('ph_link')}" oninput="updateReqPreview()"></div>
+    <div class="field">
+      <label>${t('lbl_image')}</label>
+      <div class="img-upload-row">
+        <label class="img-upload-btn">
+          📷 ${t('lbl_image')}
+          <input type="file" accept="image/*" onchange="handleItemImage(${i}, this)">
+        </label>
+        ${it.image ? `
+          <div class="img-preview">
+            <img src="${it.image}" alt="">
+            <button type="button" onclick="removeItemImage(${i})">${t('remove_image')}</button>
+          </div>` : ''}
+      </div>
+      <p class="hint">${t('img_or_link_hint')}</p>
+    </div>
+    <div class="row2">
+      <div class="field"><label>${t('lbl_price2')}</label><input type="number" id="itemPrice${i}" min="0" step="0.01" value="${it.price||''}" oninput="updateReqPreview()"></div>
+      <div class="field"><label>${t('lbl_weight2')}</label><input type="number" id="itemWeight${i}" min="0" step="0.1" value="${it.weight||''}" oninput="updateReqPreview()"></div>
+    </div>
+    <div class="field"><label>${t('lbl_category')}</label>
+      <select id="itemCategory${i}" onchange="updateReqPreview()">
+        <option value="clothing" ${it.category==='clothing'?'selected':''}>${t('cat_clothing')}</option>
+        <option value="electronics" ${it.category==='electronics'?'selected':''}>${t('cat_electronics')}</option>
+        <option value="beauty" ${it.category==='beauty'?'selected':''}>${t('cat_beauty')}</option>
+        <option value="home" ${it.category==='home'?'selected':''}>${t('cat_home')}</option>
+        <option value="other" ${it.category==='other'?'selected':''}>${t('cat_other')}</option>
+      </select>
+    </div>
+  </div>`;
+}
+
+function fileToCompressedDataURL(file, maxW, quality){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('read failed'));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error('decode failed'));
+      img.onload = () => {
+        const scale = Math.min(1, maxW / img.width);
+        const w = Math.round(img.width * scale);
+        const h = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handleItemImage(i, inputEl){
+  const file = inputEl.files[0];
+  if(!file) return;
+  const d = captureReqDraft();
+  try{
+    const dataUrl = await fileToCompressedDataURL(file, 480, 0.65);
+    d.items[i].image = dataUrl;
+    state.reqDraft = d;
+    render();
+  }catch(e){ /* silently ignore unreadable image */ }
+}
+function removeItemImage(i){
+  const d = captureReqDraft();
+  d.items[i].image = null;
+  state.reqDraft = d;
+  render();
+}
+
+function viewRequest(){
+  const d = state.reqDraft || defaultReqDraft();
+  state.reqDraft = d;
+  return `
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <h2 class="section-title">${state.editingCode ? t('edit_title') : t('req_title')}</h2>
+      <p class="section-sub">${t('req_sub')}</p>
+      <div class="panel">
+        <div id="reqAlert"></div>
+        <form id="reqForm" onsubmit="submitOrder(event)">
+          <div class="row2">
+            <div class="field"><label>${t('lbl_name')}</label><input type="text" id="fName" value="${d.name}" placeholder="${t('ph_name')}"></div>
+            <div class="field"><label>${t('lbl_phone')}</label><input type="tel" id="fPhone" value="${d.phone}" placeholder="${t('ph_phone')}"></div>
+          </div>
+
+          <div id="itemsWrap">
+            ${d.items.map((it,i)=>itemRowHTML(it,i)).join('')}
+          </div>
+          <button type="button" class="btn btn-ghost btn-block" style="margin-bottom:20px" onclick="addReqItem()">${t('add_item')}</button>
+
+          <div class="field">
+            <label>${t('lbl_city')}</label>
+            <select id="fCity">
+              <option value="dubai" ${d.city==='dubai'?'selected':''}>${t('city_dubai')}</option>
+              <option value="auh" ${d.city==='auh'?'selected':''}>${t('city_auh')}</option>
+              <option value="shj" ${d.city==='shj'?'selected':''}>${t('city_shj')}</option>
+              <option value="ajm" ${d.city==='ajm'?'selected':''}>${t('city_ajm')}</option>
+              <option value="rak" ${d.city==='rak'?'selected':''}>${t('city_rak')}</option>
+              <option value="fuj" ${d.city==='fuj'?'selected':''}>${t('city_fuj')}</option>
+              <option value="uaq" ${d.city==='uaq'?'selected':''}>${t('city_uaq')}</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>${t('lbl_shipping')}</label>
+            <div class="ship-options">
+              <label class="ship-card ${d.shipping!=='express'?'active':''}">
+                <input type="radio" name="shipMode" value="standard" ${d.shipping!=='express'?'checked':''} onchange="updateReqPreview()">
+                <span class="ship-title">${t('ship_standard')}</span>
+                <span class="ship-note">${t('ship_standard_note')}</span>
+              </label>
+              <label class="ship-card ${d.shipping==='express'?'active':''}">
+                <input type="radio" name="shipMode" value="express" ${d.shipping==='express'?'checked':''} onchange="updateReqPreview()">
+                <span class="ship-title">${t('ship_express')}</span>
+                <span class="ship-note">${t('ship_express_note')}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="check-row">
+              <input type="checkbox" id="fInsured" ${d.insured?'checked':''} onchange="updateReqPreview()">
+              <span>${t('lbl_insurance')}</span>
+            </label>
+            <p class="hint">${t('insurance_note')}</p>
+          </div>
+
+          <div class="field"><label>${t('lbl_notes')}</label><textarea id="fNotes">${d.notes}</textarea></div>
+
+          <div id="reqPreview" class="result-box" style="margin-bottom:20px"></div>
+
+          <button type="submit" class="btn btn-primary btn-block">${state.editingCode ? t('save_edit_btn') : t('submit_order')}</button>
+        </form>
+      </div>
+    </div>
+  </section>`;
+}
+
+async function submitOrder(ev){
+  ev.preventDefault();
+  const d = captureReqDraft();
+  const alertBox = document.getElementById('reqAlert');
+  const name = d.name.trim();
+  const phone = d.phone.trim();
+  const items = d.items.map(it=>({
+    link: (it.link||'').trim(), price: parseFloat(it.price)||0, weight: parseFloat(it.weight)||1,
+    category: it.category, image: it.image || null
+  }));
+  const validItems = items.filter(it=>(it.link || it.image) && it.price>0);
+
+  if(!name || !phone || validItems.length===0){
+    alertBox.innerHTML = `<div class="alert alert-error">${t('err_required')}</div>`;
+    return;
+  }
+  const cost = computeCost(validItems, d.shipping, d.insured);
+  const isEdit = !!state.editingCode;
+  const code = isEdit ? state.editingCode : genCode();
+  const createdAt = isEdit ? state.editingCreatedAt : Date.now();
+  const order = {
+    code, name, phone, city: d.city, notes: d.notes.trim(),
+    shipping: d.shipping, insured: d.insured, items: validItems,
+    createdAt, cost, statusOverride: isEdit ? (state.editingStatusOverride || null) : null,
+    cancelled: false
+  };
+
+  try{
+    const res1 = await window.storage.set('order:'+code, JSON.stringify(order), false);
+    const res2 = await window.storage.set('admin_order:'+code, JSON.stringify(order), true);
+    if(!res1 || !res2){ throw new Error('save failed'); }
+    state.confirmedOrder = order;
+    state.reqDraft = null;
+    state.editingCode = null;
+    state.editingCreatedAt = null;
+    state.editingStatusOverride = null;
+    state.view = isEdit ? 'track' : 'confirm';
+    if(isEdit){ state.trackPrefill = code; }
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    alertBox.innerHTML = `<div class="alert alert-error">${t('err_storage')}</div>`;
+  }
+}
+
+function isEditableOrder(order){
+  return !order.cancelled && (Date.now() - order.createdAt) < 60*60*1000;
+}
+
+async function startEditOrder(code){
+  try{
+    const o = await getAuthoritativeOrder(code);
+    if(!isEditableOrder(o)) return;
+    state.editingCode = o.code;
+    state.editingCreatedAt = o.createdAt;
+    state.editingStatusOverride = o.statusOverride;
+    state.reqDraft = {
+      name: o.name, phone: o.phone, city: o.city, notes: o.notes || '',
+      shipping: o.shipping, insured: o.insured,
+      items: o.items.map(it=>({...it}))
+    };
+    setView('request');
+  }catch(e){}
+}
+
+async function cancelOrder(code){
+  if(!window.confirm(t('cancel_confirm'))) return;
+  try{
+    const o = await getAuthoritativeOrder(code);
+    if(!isEditableOrder(o)) return;
+    o.cancelled = true;
+    await window.storage.set('order:'+code, JSON.stringify(o), false);
+    await window.storage.set('admin_order:'+code, JSON.stringify(o), true);
+    prefillTrackAndGo(code);
+  }catch(e){}
+}
+
+function viewConfirm(){
+  const o = state.confirmedOrder;
+  if(!o) return `<section class="section container">${t('orders_empty_t')}</section>`;
+  return `
+  <section class="section">
+    <div class="container" style="max-width:600px">
+      <div class="panel confirm-box">
+        <div class="icon-ok">${ICON_OK}</div>
+        <h2 class="section-title">${t('confirm_title')}</h2>
+        <p class="section-sub">${t('confirm_sub')}</p>
+        <div class="code-chip">${o.code}</div>
+        <div class="result-box" style="text-align:${state.lang==='ar'?'right':'left'};margin-top:24px">
+          <div class="result-line"><span>${t('field_items')}</span><span class="val">${o.items.length}</span></div>
+          <div class="result-line"><span>${t('field_shipping')}</span><span class="val">${o.shipping==='express'?t('ship_express'):t('ship_standard')}</span></div>
+          <div class="result-line"><span>${t('field_city')}</span><span class="val">${t('city_'+o.city)}</span></div>
+          <div class="result-total"><span>${t('confirm_total')}</span><span class="val">AED ${fmt(o.cost.total)}</span></div>
+        </div>
+        <div class="hero-actions" style="justify-content:center;margin-top:24px">
+          <button class="btn btn-primary" onclick="prefillTrackAndGo('${o.code}')">${t('confirm_track_btn')}</button>
+          <button class="btn btn-ghost" onclick="setView('orders')">${t('confirm_orders_btn')}</button>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function viewTrack(){
+  return `
+  <section class="section">
+    <div class="container" style="max-width:680px">
+      <h2 class="section-title">${t('track_title')}</h2>
+      <p class="section-sub">${t('track_sub')}</p>
+      <div class="track-search">
+        <input type="text" id="trackInput" placeholder="${t('track_ph')}" value="${state.trackPrefill||''}">
+        <button class="btn btn-primary" onclick="runTrack()">${t('track_btn')}</button>
+      </div>
+      <div id="trackOutput"></div>
+    </div>
+  </section>`;
+}
+
+async function runTrack(){
+  const input = document.getElementById('trackInput');
+  const code = input.value.trim().toUpperCase();
+  const out = document.getElementById('trackOutput');
+  if(!code){ return; }
+  out.innerHTML = '';
+  try{
+    const order = await getAuthoritativeOrder(code);
+    out.innerHTML = renderTrackTimeline(order);
+  }catch(err){
+    out.innerHTML = `<div class="alert alert-error" style="margin-top:16px">${t('track_notfound')}</div>`;
+  }
+}
+function prefillTrackAndGo(code){
+  state.trackPrefill = code;
+  setView('track');
+  setTimeout(()=>{ const el=document.getElementById('trackInput'); if(el){ el.value=code; runTrack(); } }, 0);
+}
+
+function renderTrackTimeline(order){
+  if(order.cancelled){
+    return `
+    <div class="panel" style="margin-top:20px">
+      <div class="code-chip" style="margin-bottom:18px">${order.code}</div>
+      <div class="cancelled-banner">
+        <h3>${t('cancelled_title')}</h3>
+        <p>${t('cancelled_note')}</p>
+      </div>
+    </div>`;
+  }
+
+  const stageIdx = stageIndexForOrder(order);
+  const items = STAGE_KEYS.map((key, i)=>{
+    const done = i < stageIdx || (i===stageIdx && key==='delivered');
+    const current = i === stageIdx && key !== 'delivered';
+    const dotClass = done ? 'done' : (current ? 'current' : '');
+    const lineClass = i < stageIdx ? 'done' : '';
+    return `
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot ${dotClass}">${done?ICON_OK:''}</div>
+          ${i < STAGE_KEYS.length-1 ? `<div class="tl-line ${lineClass}"></div>` : ''}
+        </div>
+        <div class="tl-content">
+          <h3>${t('stage_'+key+'_t')}</h3>
+          <p>${t('stage_'+key+'_d')}</p>
+        </div>
+      </div>`;
+  }).join('');
+
+  const editable = isEditableOrder(order);
+
+  return `
+    <div class="panel" style="margin-top:20px">
+      <div class="code-chip" style="margin-bottom:18px">${order.code}</div>
+      <div class="result-box" style="text-align:${state.lang==='ar'?'right':'left'}">
+        <div class="result-line"><span>${t('field_items')}</span><span class="val">${order.items.length}</span></div>
+        <div class="result-line"><span>${t('field_shipping')}</span><span class="val">${order.shipping==='express'?t('ship_express'):t('ship_standard')}</span></div>
+        <div class="result-line"><span>${t('field_insurance')}</span><span class="val">${order.insured?t('insurance_yes'):t('insurance_no')}</span></div>
+        <div class="result-line"><span>${t('field_city')}</span><span class="val">${t('city_'+order.city)}</span></div>
+        <div class="result-total"><span>${t('field_est')}</span><span class="val">AED ${fmt(order.cost.total)}</span></div>
+      </div>
+      <div class="timeline">${items}</div>
+      <button class="btn btn-ghost btn-block" style="margin-top:20px" onclick="openInvoice('${order.code}')">${t('invoice_btn')}</button>
+      ${editable ? `
+        <div class="hero-actions" style="margin-top:12px">
+          <button class="btn btn-ghost" style="flex:1" onclick="startEditOrder('${order.code}')">${t('edit_order_btn')}</button>
+          <button class="btn btn-ghost" style="flex:1;border-color:var(--danger);color:var(--danger)" onclick="cancelOrder('${order.code}')">${t('cancel_order_btn')}</button>
+        </div>
+        <p class="hint" style="text-align:center;margin-top:10px">${t('edit_window_note')}</p>
+      ` : ''}
+    </div>`;
+}
+
+function viewOrders(){
+  return `
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <h2 class="section-title">${t('orders_title')}</h2>
+      <p class="section-sub">${t('orders_sub')}</p>
+      <div id="ordersList"><p class="placeholder-note">...</p></div>
+    </div>
+  </section>`;
+}
+
+async function loadOrders(){
+  const box = document.getElementById('ordersList');
+  if(!box) return;
+  try{
+    const listRes = await window.storage.list('order:', false);
+    const keys = (listRes && listRes.keys) ? listRes.keys : [];
+    if(keys.length === 0){ throw new Error('empty'); }
+    const orders = [];
+    for(const k of keys){
+      try{
+        const r = await window.storage.get(k, false);
+        const local = JSON.parse(r.value);
+        let authoritative = local;
+        try{ authoritative = await getAuthoritativeOrder(local.code); }catch(e){ /* fall back to local */ }
+        orders.push(authoritative);
+      }catch(e){ /* skip unreadable entry */ }
+    }
+    orders.sort((a,b)=>b.createdAt-a.createdAt);
+    if(orders.length===0){ throw new Error('empty'); }
+    box.innerHTML = orders.map(o=>{
+      const idx = stageIndexForOrder(o);
+      const delivered = idx === STAGE_KEYS.length-1;
+      return `
+      <div class="order-card" onclick="prefillTrackAndGo('${o.code}')">
+        <div>
+          <div class="order-code">${o.code}</div>
+          <div class="order-meta">${t('city_'+o.city)} · AED ${fmt(o.cost.total)}</div>
+        </div>
+        <div class="status-pill ${delivered?'':'inprogress'}">${delivered ? t('status_delivered') : t('status_inprogress')}</div>
+      </div>`;
+    }).join('');
+  }catch(err){
+    box.innerHTML = `
+      <div class="empty-state">
+        <p style="font-weight:700;color:var(--ink);margin-bottom:4px">${t('orders_empty_t')}</p>
+        <p style="margin-bottom:18px">${t('orders_empty_d')}</p>
+        <button class="btn btn-primary" onclick="setView('request')">${t('orders_empty_cta')}</button>
+      </div>`;
+  }
+}
+
+function openInvoice(code){
+  state.invoiceCode = code;
+  setView('invoice');
+}
+
+function viewInvoice(){
+  return `
+  <section class="section">
+    <div class="container" style="max-width:680px">
+      <div id="invoiceBox"><p class="placeholder-note">...</p></div>
+    </div>
+  </section>`;
+}
+
+async function loadInvoice(){
+  const box = document.getElementById('invoiceBox');
+  if(!box || !state.invoiceCode) return;
+  try{
+    const o = await getAuthoritativeOrder(state.invoiceCode);
+    const dateStr = new Date(o.createdAt).toLocaleDateString(state.lang==='ar'?'ar-AE':'en-AE',{year:'numeric',month:'long',day:'numeric'});
+    const rows = o.items.map(it=>`
+      <tr>
+        <td class="inv-link">${it.image ? `<img src="${it.image}" alt="" style="width:34px;height:34px;object-fit:cover;border-radius:6px;vertical-align:middle;margin-inline-end:6px">` : ''}${it.link || (it.image ? '' : '—')}</td>
+        <td>${t('cat_'+it.category)}</td>
+        <td>${fmt(it.price)}</td>
+        <td>${fmt(it.weight)}</td>
+      </tr>`).join('');
+    box.innerHTML = `
+      <div class="panel invoice-sheet">
+        <div class="invoice-head">
+          <div>
+            <span class="brand-name" style="font-size:20px">${t('brand')}</span>
+            <p class="hint" style="margin-top:4px">${t('invoice_title')}</p>
+          </div>
+          <div style="text-align:${state.lang==='ar'?'left':'right'}">
+            <div class="code-chip" style="font-size:15px;padding:6px 12px">${o.code}</div>
+            <p class="hint" style="margin-top:6px">${t('invoice_date')}: ${dateStr}</p>
+          </div>
+        </div>
+
+        <div class="result-box" style="text-align:${state.lang==='ar'?'right':'left'};margin-top:18px">
+          <p style="font-weight:700;margin:0 0 8px">${t('invoice_customer')}</p>
+          <div class="result-line"><span>${t('lbl_name')}</span><span class="val">${o.name}</span></div>
+          <div class="result-line"><span>${t('lbl_phone')}</span><span class="val">${o.phone}</span></div>
+          <div class="result-line"><span>${t('field_city')}</span><span class="val">${t('city_'+o.city)}</span></div>
+        </div>
+
+        <p style="font-weight:700;margin:20px 0 10px">${t('invoice_items')}</p>
+        <table class="invoice-table">
+          <thead><tr><th>${t('invoice_col_product')}</th><th>${t('invoice_col_cat')}</th><th>${t('invoice_col_price')}</th><th>${t('invoice_col_weight')}</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+
+        <div class="result-box" style="text-align:${state.lang==='ar'?'right':'left'};margin-top:18px">
+          <div class="result-line"><span>${t('res_item')}</span><span class="val">AED ${fmt(o.cost.itemsTotalAED)}</span></div>
+          <div class="result-line"><span>${t('res_shipping')} (${o.shipping==='express'?t('ship_express'):t('ship_standard')})</span><span class="val">AED ${fmt(o.cost.shippingFee)}</span></div>
+          <div class="result-line"><span>${t('res_service')}</span><span class="val">AED ${fmt(o.cost.service)}</span></div>
+          ${o.insured ? `<div class="result-line"><span>${t('res_insurance')}</span><span class="val">AED ${fmt(o.cost.insurance)}</span></div>` : ''}
+          <div class="result-line"><span>${t('res_customs')}</span><span class="val">AED ${fmt(o.cost.customs)}</span></div>
+          <div class="result-total"><span>${t('res_total')}</span><span class="val">AED ${fmt(o.cost.total)}</span></div>
+        </div>
+
+        <p class="hint" style="text-align:center;margin-top:22px">${t('invoice_thanks')}</p>
+
+        <div class="hero-actions no-print" style="justify-content:center;margin-top:20px">
+          <button class="btn btn-primary" onclick="window.print()">${t('invoice_print')}</button>
+          <button class="btn btn-ghost" onclick="prefillTrackAndGo('${o.code}')">${t('invoice_back')}</button>
+        </div>
+      </div>`;
+  }catch(err){
+    box.innerHTML = `<div class="alert alert-error">${t('track_notfound')}</div>`;
+  }
+}
+
+/* ---------- Admin ---------- */
+function viewAdmin(){
+  if(!state.adminAuthed){
+    return `
+    <section class="section">
+      <div class="container" style="max-width:420px">
+        <h2 class="section-title">${t('admin_title')}</h2>
+        <p class="section-sub">${t('admin_sub')}</p>
+        <div class="panel">
+          <div id="adminAlert"></div>
+          <div class="field"><label>${t('admin_pin_label')}</label><input type="text" id="adminPin" inputmode="numeric"></div>
+          <button class="btn btn-primary btn-block" onclick="adminLogin()">${t('admin_pin_btn')}</button>
+        </div>
+      </div>
+    </section>`;
+  }
+  return `
+  <section class="section">
+    <div class="container" style="max-width:820px">
+      <h2 class="section-title">${t('admin_title')}</h2>
+      <p class="section-sub">${t('admin_sub')}</p>
+      <div id="adminList"><p class="placeholder-note">...</p></div>
+    </div>
+  </section>`;
+}
+
+function adminLogin(){
+  const val = document.getElementById('adminPin').value.trim();
+  const alertBox = document.getElementById('adminAlert');
+  if(val === ADMIN_PIN){
+    state.adminAuthed = true;
+    render();
+  }else{
+    alertBox.innerHTML = `<div class="alert alert-error">${t('admin_pin_wrong')}</div>`;
+  }
+}
+
+function renderAdminChart(orders){
+  const days = [];
+  for(let i=6;i>=0;i--){
+    const d = new Date(Date.now() - i*24*60*60*1000);
+    days.push({key: d.toDateString(), label: d.toLocaleDateString(state.lang==='ar'?'ar-AE':'en-AE',{weekday:'short'}), count:0});
+  }
+  orders.forEach(o=>{
+    const key = new Date(o.createdAt).toDateString();
+    const day = days.find(d=>d.key===key);
+    if(day) day.count++;
+  });
+  const max = Math.max(1, ...days.map(d=>d.count));
+  const barW = 64, gap = 18, chartH = 120, baseY = 140;
+  const totalW = days.length * (barW+gap);
+  const bars = days.map((d,i)=>{
+    const h = Math.round((d.count/max) * chartH);
+    const x = i*(barW+gap) + gap/2;
+    const y = baseY - h;
+    return `
+      <rect x="${x}" y="${y}" width="${barW}" height="${h}" rx="6" fill="#F4A93E"/>
+      <text x="${x+barW/2}" y="${baseY+18}" text-anchor="middle" font-size="11" fill="#5C6B76" font-family="IBM Plex Sans Arabic">${d.label}</text>
+      <text x="${x+barW/2}" y="${y-6}" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1E29" font-family="JetBrains Mono">${d.count}</text>
+    `;
+  }).join('');
+  return `<svg viewBox="0 0 ${totalW} 165" xmlns="http://www.w3.org/2000/svg">${bars}</svg>`;
+}
+
+async function loadAdminOrders(){
+  const box = document.getElementById('adminList');
+  if(!box) return;
+  try{
+    const listRes = await window.storage.list('admin_order:', true);
+    const keys = (listRes && listRes.keys) ? listRes.keys : [];
+    if(keys.length===0){ throw new Error('empty'); }
+    const orders = [];
+    for(const k of keys){
+      try{
+        const r = await window.storage.get(k, true);
+        orders.push(JSON.parse(r.value));
+      }catch(e){}
+    }
+    orders.sort((a,b)=>b.createdAt-a.createdAt);
+    if(orders.length===0){ throw new Error('empty'); }
+
+    const revenue = orders.filter(o=>!o.cancelled).reduce((s,o)=>s+o.cost.total,0);
+    const statsHTML = `
+      <div class="admin-stats-row">
+        <div class="admin-stat"><div class="num">${orders.length}</div><div class="lbl">${t('admin_stats_orders')}</div></div>
+        <div class="admin-stat"><div class="num">AED ${fmt(revenue)}</div><div class="lbl">${t('admin_stats_revenue')}</div></div>
+      </div>
+      <div class="admin-chart">
+        <p style="font-weight:700;font-size:13.5px;margin:0 0 10px">${t('admin_chart_title')}</p>
+        ${renderAdminChart(orders)}
+      </div>`;
+
+    const listHTML = orders.map(o=>{
+      const autoIdx = (()=>{ const clone=Object.assign({},o,{statusOverride:null}); return stageIndexForOrder(clone); })();
+      const currentIdx = stageIndexForOrder(o);
+      return `
+      <div class="panel" style="margin-bottom:14px;padding:18px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div class="code-chip" style="font-size:14px;padding:6px 12px">${o.code}</div>
+          <span class="order-meta">${o.name} · ${o.phone} · ${t('city_'+o.city)} · AED ${fmt(o.cost.total)}${o.cancelled ? ' · '+t('cancelled_title') : ''}</span>
+        </div>
+        <p class="hint" style="margin-top:10px">${t('admin_set_status')} ${!o.statusOverride ? '· <em>'+t('admin_auto')+'</em>' : ''}</p>
+        <div class="admin-stage-row">
+          ${STAGE_KEYS.map((key,i)=>`
+            <button class="stage-btn ${i===currentIdx?'active':''}" onclick="setOrderStatus('${o.code}','${key}')">${t('stage_'+key+'_t')}</button>
+          `).join('')}
+          <button class="stage-btn ghost" onclick="clearOrderStatus('${o.code}')">${t('admin_auto')}</button>
+        </div>
+      </div>`;
+    }).join('');
+
+    box.innerHTML = statsHTML + listHTML;
+  }catch(err){
+    box.innerHTML = `<p class="placeholder-note">${t('admin_empty')}</p>`;
+  }
+}
+
+async function setOrderStatus(code, key){
+  try{
+    const o = await getAuthoritativeOrder(code);
+    o.statusOverride = key;
+    await window.storage.set('admin_order:'+code, JSON.stringify(o), true);
+    loadAdminOrders();
+  }catch(e){}
+}
+async function clearOrderStatus(code){
+  try{
+    const o = await getAuthoritativeOrder(code);
+    o.statusOverride = null;
+    await window.storage.set('admin_order:'+code, JSON.stringify(o), true);
+    loadAdminOrders();
+  }catch(e){}
+}
+
+/* ---------- Shell ---------- */
+function headerHTML(){
+  const tabs = [['home','nav_home'],['calc','nav_calc'],['request','nav_request'],['track','nav_track'],['orders','nav_orders']];
+  return `
+  <header class="site no-print">
+    <div class="container header-row">
+      <div class="brand">
+        <div class="brand-mark">${ICON_MARK}</div>
+        <span class="brand-name">${t('brand')}</span>
+      </div>
+      <nav class="tabs">
+        ${tabs.map(([id,key])=>`<button class="${state.view===id?'active':''}" onclick="setView('${id}')">${t(key)}</button>`).join('')}
+      </nav>
+      <div class="lang-toggle">
+        <button class="${state.lang==='ar'?'active':''}" onclick="setLang('ar')">AR</button>
+        <button class="${state.lang==='en'?'active':''}" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </header>`;
+}
+function footerHTML(){
+  return `
+  <footer class="site no-print">
+    <div class="container footer-row">
+      <span class="brand-name" style="font-size:15px">${t('brand')}</span>
+      <span class="footer-note">${t('footer_note')}</span>
+      <button class="admin-link" onclick="setView('admin')">${t('admin_link')}</button>
+    </div>
+  </footer>`;
+}
+
+function waFloatHTML(){
+  return `<a class="wa-float no-print" href="https://wa.me/971500000000" target="_blank" rel="noopener">${ICON_CHAT}<span>${t('wa_button')}</span></a>`;
+}
+
+function render(){
+  let body = '';
+  if(state.view==='home') body = viewHome();
+  else if(state.view==='calc') body = viewCalc();
+  else if(state.view==='request') body = viewRequest();
+  else if(state.view==='confirm') body = viewConfirm();
+  else if(state.view==='track') body = viewTrack();
+  else if(state.view==='orders') body = viewOrders();
+  else if(state.view==='invoice') body = viewInvoice();
+  else if(state.view==='admin') body = viewAdmin();
+
+  document.getElementById('root').innerHTML = headerHTML() + body + footerHTML() + waFloatHTML();
+
+  if(state.view==='orders'){ loadOrders(); }
+  if(state.view==='invoice'){ loadInvoice(); }
+  if(state.view==='admin' && state.adminAuthed){ loadAdminOrders(); }
+  if(state.view==='track' && state.trackPrefill){
+    const el = document.getElementById('trackInput');
+    if(el){ el.value = state.trackPrefill; runTrack(); }
+    state.trackPrefill = null;
+  }
+}
+
+document.documentElement.lang = state.lang;
+document.documentElement.dir = 'rtl';
+render();
+</script>
+</body>
+</html>
